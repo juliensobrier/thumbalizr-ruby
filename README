@@ -1,0 +1,36 @@
+Thumbalizr version 1.0
+================================
+
+Thumbalizr (https://thumbalizr.com/) is a web service to easily embed live screenshots of any URL in your website. Thumbalizr has full support for Flash, JavaScript, CSS, & HTML5.
+
+You can install the library from rubygem: https://rubygems.org/gems/thumbalizr
+
+The source code can be found on github at https://github.com/juliensobrier/thumbalizr-ruby
+
+
+
+== Build and install thumbalizr
+
+    git clone https://github.com/juliensobrier/thumbalizr-ruby
+    gem build thumbalizr.gemspec
+    gem install --dev thumbalizr-<version>.gem
+    rake test
+    rake rdoc
+
+Or
+
+    gem install thumbalizr
+
+== Code sample
+
+	#!/usr/bin/env ruby
+	
+	require 'thumbalizr'
+
+	client = Thumbalizr.new('MY_KEY', 'MY_SECRET')
+
+	url = client.url('https://www.thumbalizr.com/')
+	puts "#{url}\n\n"
+
+	results = client.download_wait(url, "test.png");
+	puts "Image downloaded to #{results[:image]} - #{results[:result]}\n";
